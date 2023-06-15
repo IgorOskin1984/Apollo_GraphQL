@@ -10,10 +10,29 @@ const client = new ApolloClient({
 	cache: new InMemoryCache(),
 });
 
+// const client = ...
+
+client
+	.query({
+		query: gql`
+      query GetLocations {
+        locations {
+          id
+          name
+          description
+          photo
+        }
+      }
+    `,
+	})
+	.then((result) => console.log(result));
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<App />
+		<ApolloProvider client={client}>
+			<App />
+		</ApolloProvider>
 	</React.StrictMode>
 );
 
