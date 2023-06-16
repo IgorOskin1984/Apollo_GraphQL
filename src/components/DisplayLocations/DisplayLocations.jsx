@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 
-
+//запрос query GetLocations был исправлен на query GetDogs в index.js client
 const GET_LOCATIONS = gql`
   query GetLocations {
     locations {
