@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client'
 
 const client = new ApolloClient({
-	uri: 'https://flyby-router-demo.herokuapp.com/',
+	uri: 'https://71z1g.sse.codesandbox.io/',
 	cache: new InMemoryCache(),
 });
 
@@ -15,12 +15,10 @@ const client = new ApolloClient({
 client
 	.query({
 		query: gql`
-      query GetLocations {
-        locations {
+      query GetDogs {
+        dogs {
           id
-          name
-          description
-          photo
+          breed
         }
       }
     `,
