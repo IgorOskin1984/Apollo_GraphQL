@@ -11,8 +11,9 @@ query GetDogs {
 
 
 export function Dogs({ onDogSelected }) {
-	const { loading, error, data } = useQuery(GET_DOGS);
-
+	const { loading, error, data } = useQuery(GET_DOG_PHOTO, {
+		variables: { breed },
+	});
 	if (loading) return 'Loading...';
 	if (error) return `Error! ${error.message}`;
 
