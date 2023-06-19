@@ -52,7 +52,7 @@ function DogPhoto({ breed }) {
 	});
 
 	const handleRefetch = () => {
-		refetch({ breed });
+		refetch({ breed: 'dalmatian' });
 	};
 
 	if (loading) return null;
