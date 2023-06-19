@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import { DisplayLocations } from './components/DisplayLocations/DisplayLocations';
 import { Dogs } from './components/Dogs/Dogs';
