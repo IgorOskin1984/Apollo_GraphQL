@@ -1,4 +1,4 @@
-import { gql, useQuery } from "@apollo/client";
+import { NetworkStatus, gql, useQuery } from "@apollo/client";
 import { useState } from "react";
 
 const GET_DOGS = gql`
@@ -47,14 +47,16 @@ export function Dogs() {
 }
 
 function DogPhoto({ breed }) {
-	const { loading, error, data, refetch } = useQuery(GET_DOG_PHOTO, {
+	const { loading, error, data, refetch, networkStatus } = useQuery(GET_DOG_PHOTO, {
 		variables: { breed },
+		notifyOnNetworkStatusChange: true,
 	});
 
 	const handleRefetch = () => {
-		refetch({ breed: 'dalmatian' });
+		refetch();
 	};
 
+	if (networkStatus === NetworkStatus.refetch) return 'Refetching!';
 	if (loading) return null;
 	if (error) return `Error! ${error}`;
 
