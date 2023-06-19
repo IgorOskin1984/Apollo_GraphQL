@@ -53,6 +53,7 @@ function DogPhoto({ breed }) {
 	});
 
 	const handleRefetch = () => {
+		//убрали breed из refetch
 		refetch();
 	};
 
